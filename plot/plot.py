@@ -36,9 +36,6 @@ class Art:
     def __bar_one_stack(self, ax, x, data, w, cmap=None, hmap=None):
         ax.bar(x, data[0], w, color=cmap, lw=1, edgecolor='k',)
 
-    def __bar__one_griou(self, ax, x, data, w, cmap=None, hmap=None):
-        pass
-
     def bar(self, ax, data, cmap):
         pass
 

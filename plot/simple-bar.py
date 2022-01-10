@@ -25,6 +25,34 @@ def draw_bar(ax, data):
     ax.set_axisbelow(True)
     ax.legend(prop={'size': 6})
 
+def draw_bar(ax, app):
+    lbl = ["default", "optimal"]
+    cmaps = ["k", "tan"]
+    new_path="./new_%s.etl" % (app)
+    old_path="./old_%s.etl" % (app)
+    dft = np.loadtxt(old_path).T
+    opt = np.loadtxt(new_path).T
+    opt = opt/dft
+    dft = dft/dft
+    mask = np.ones(15, dtype=bool)
+    mask[[2,4,6,8,9]] = False
+    opt = opt[mask]
+    dft = dft[mask]
+    print(opt)
+    width=0.35
+    #plt.get_cmap('gray')(np.linspace(0.15, 0.85, 3))
+    #ax.xaxis.set_visible(False)
+    #ax.yaxis.set_visible(False)
+    x = np.arange(len(names))
+    rect=ax.bar(x-width/2, dft, width, color=cmaps[0], lw=1, edgecolor='k', label=lbl[0], hatch='+')
+    rect=ax.bar(x+width/2, opt, width, color=cmaps[1], lw=1, edgecolor='k', label=lbl[1], hatch='//')
+    ax.set_xticks(x)
+    ax.set_xticklabels(names)
+    ax.grid(axis='y', ls='--')
+    #ax.set_yscale('log')
+    #ax.set_xlim(0, np.sum(data, axis=1).max())
+    #ax.set_ylim(-0.4, 7.4)
+
 def draw_stack_bar(_ax, ax):
     base =   np.array(
             [[24.947917, 9.86953125],

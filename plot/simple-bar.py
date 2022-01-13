@@ -22,8 +22,8 @@ def draw_bar(ax, data):
     ax.set_xticks(x)
     ax.set_xticklabels(xname)
     ax.grid(ls='--')
-    ax.set_axisbelow(True)
-    ax.legend(prop={'size': 6})
+    #ax.set_axisbelow(True)
+    #ax.legend(prop={'size': 6})
 
 def draw_bar(ax, app):
     lbl = ["default", "optimal"]

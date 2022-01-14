@@ -25,13 +25,13 @@ def draw_bar(ax, data):
     #ax.set_axisbelow(True)
     #ax.legend(prop={'size': 6})
 
-def draw_bar(ax, app):
+def draw_bar(ax, data):
     lbl = ["default", "optimal"]
     cmaps = ["k", "tan"]
     new_path="./new_%s.etl" % (app)
     old_path="./old_%s.etl" % (app)
-    dft = np.loadtxt(old_path).T
-    opt = np.loadtxt(new_path).T
+    #dft = np.loadtxt(old_path).T
+    #opt = np.loadtxt(new_path).T
     opt = opt/dft
     dft = dft/dft
     mask = np.ones(15, dtype=bool)

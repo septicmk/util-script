@@ -32,8 +32,8 @@ def draw_bar(ax, data):
     old_path="./old_%s.etl" % (app)
     #dft = np.loadtxt(old_path).T
     #opt = np.loadtxt(new_path).T
-    opt = opt/dft
-    dft = dft/dft
+    #opt = opt/dft
+    #dft = dft/dft
     mask = np.ones(15, dtype=bool)
     mask[[2,4,6,8,9]] = False
     opt = opt[mask]

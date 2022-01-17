@@ -53,14 +53,14 @@ def draw_bar(ax, data):
     #ax.set_xlim(0, np.sum(data, axis=1).max())
     #ax.set_ylim(-0.4, 7.4)
 
-def draw_stack_bar(_ax, ax):
-    base =   np.array(
-            [[24.947917, 9.86953125],
-             [22.720545, 40.9888]]).T
-    plasma=np.array(
-            [[15.401334, 0.000187],
-             [16.796730, 0.804495]]).T
-    over = np.array([0, 22.720545+140.9888])
+def draw_stack_bar(_ax, ax, data):
+    #base =   np.array(
+    #        [[24.947917, 9.86953125],
+    #         [22.720545, 40.9888]]).T
+    #plasma=np.array(
+    #        [[15.401334, 0.000187],
+    #         [16.796730, 0.804495]]).T
+    #over = np.array([0, 22.720545+140.9888])
     width = 0.35
     names = ["tensor", "dataframe"]
     cmaps = [ycmap[1], ycmap[0]]

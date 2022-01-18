@@ -32,8 +32,8 @@ draw_stack_bar(axs)
 
 
 handles, labels = axs.get_legend_handles_labels()
-#fig.legend(handles, labels, loc='lower center', bbox_to_anchor=(0.5, -0.05), ncol=4)
-fig.legend(handles, labels, loc='lower center', ncol=2)
+fig.legend(handles, labels, loc='lower center', bbox_to_anchor=(0.5, -0.05), ncol=4)
+#fig.legend(handles, labels, loc='lower center', ncol=2)
 plt.tight_layout()
 fig.subplots_adjust(bottom=0.12)
 plt.show()

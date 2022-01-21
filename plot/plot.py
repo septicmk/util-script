@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys, os
 
+# TODO (mengke): implement a reusable plot lib in your spare time.
+# A art is a actor, describe the profile of the colormap, markers and styles, It can 
+# - generate a layout
+# - provide APIs to visualize data in a single call
 class Art:
     def __init__(self):
         pass

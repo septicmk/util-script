@@ -10,7 +10,7 @@ data = np.array([[2439.45, 164.634765],
                  [50.5063, 52.421669],
                  [56.4439, 14.584431]])
 """
-def draw_bar(ax, data):
+def draw_bar(ax, x, data, labels, colors):
     w = 0.25;
     x = np.array([0, 1])
     xname = ["Grape", "DGL"]
@@ -25,7 +25,7 @@ def draw_bar(ax, data):
     #ax.set_axisbelow(True)
     #ax.legend(prop={'size': 6})
 
-def draw_bar(ax, data):
+def draw_bar(ax, x, data, labels, colors):
     lbl = ["default", "optimal"]
     cmaps = ["k", "tan"]
     new_path="./new_%s.etl" % (app)
@@ -96,7 +96,7 @@ def draw_stack_bar(_ax, ax, data):
     _ax.legend(prop={'size': 6})
     # ax.set_yscale('log')
 
-def draw_stack_bar(ax):
+def draw_stack_bar(ax, x, data, labels, colors):
     lbl = ["comp", "overhead"]
     comp     =   np.array([53, 53, 53])
     overhead = np.array([0, 23, 50.4])
@@ -117,7 +117,7 @@ def draw_stack_bar(ax):
     ax.legend(prop={'size': 10})
     # ax.set_yscale('log')
 
-def draw_barh0(ax):
+def draw_barh0(ax, x, data, labels, colors):
     lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
     itg  = [345, 215, 130, 0, 0]
     cmaps = ["k", "dimgray", "gray", "lightgray", "w", "r"]
@@ -129,7 +129,7 @@ def draw_barh0(ax):
     ax.yaxis.set_visible(True)
     #ax.set_xscale('log')
 
-def draw_barh1(ax):
+def draw_barh1(ax, data):
     lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
     perf = [71.3,  95.6, 110.9, 135.2, 238.4]
     cmaps = ["k", "dimgray", "gray", "lightgray", "r"]

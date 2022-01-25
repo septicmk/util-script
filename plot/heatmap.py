@@ -3,7 +3,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import sys
 
-def draw_heatmap(ax, name, data):
+def draw_heatmap(ax, data):
     #im = ax.imshow(data, cmap='gray')
     #im = ax.imshow(data, cmap='gist_heat')
     im = ax.imshow(data, cmap='bone')

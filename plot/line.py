@@ -5,7 +5,7 @@ from operator import add
 
 ycmap = ["#F7bc15", "#1a3ac5", "#3366ff", "#Abcbf6"]
 
-def draw_lines(ax):
+def draw_lines(ax, x, data, labels, colors, markers):
     names = ["./1M.txt", "./2M.txt", "./4M.txt", "./8M.txt", "./16M.txt", "./32M.txt"]
     x = ["1M", "2M", "4M", "8M", "16M", "32M"]
     labels = ["Arrow Read", "Arrow Write", "Java Read", "Java Write", "FFI Read", "FFI Write", "ONI Read", "ONI Write"]
@@ -46,7 +46,7 @@ def draw_lines(ax):
     #ax.legend(frameon=False, prop={'size': 6})
     ax.legend(prop={'size': 6})
 
-def draw_lines(ax, data, labels):
+def draw_lines(ax, x, data, labels, colors, markers):
     x = ["1", "2", "3", "4"]
     labels = ["DF Incbuild", "DF ReBuild", "Graph Incbuild", "Graph ReBuild"]
     colors = [ycmap[0], ycmap[1]]
@@ -65,7 +65,7 @@ def draw_lines(ax, data, labels):
     #ax.set_ylim(0, 100)
     ax.legend(prop={'size': 10}, ncol=2)
 
-def draw_lines2(ax):
+def draw_lines2(ax, x, data, labels, colors, markers):
     x = ["1", "2", "3", "4"]
     labels = ["DF Incbuild", "DF ReBuild", "Graph Incbuild", "Graph ReBuild"]
     colors = [ycmap[0], ycmap[1]]

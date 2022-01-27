@@ -12,7 +12,7 @@ data = np.array([[2439.45, 164.634765],
 """
 def draw_bar(ax, x, data, labels, colors):
     w = 0.25;
-    x = np.array([0, 1])
+    #x = np.array([0, 1])
     xname = ["Grape", "DGL"]
     ax.bar(x-w, data[0], w, label="IO", lw=1, edgecolor='k', color='k', hatch='+')
     ax.bar(x, data[1], w, label="Serialization", edgecolor='k', color=ycmap[1])
@@ -26,8 +26,8 @@ def draw_bar(ax, x, data, labels, colors):
     #ax.legend(prop={'size': 6})
 
 def draw_bar(ax, x, data, labels, colors):
-    lbl = ["default", "optimal"]
-    cmaps = ["k", "tan"]
+    #lbl = ["default", "optimal"]
+    #cmaps = ["k", "tan"]
     new_path="./new_%s.etl" % (app)
     old_path="./old_%s.etl" % (app)
     #dft = np.loadtxt(old_path).T
@@ -43,7 +43,7 @@ def draw_bar(ax, x, data, labels, colors):
     #plt.get_cmap('gray')(np.linspace(0.15, 0.85, 3))
     #ax.xaxis.set_visible(False)
     #ax.yaxis.set_visible(False)
-    x = np.arange(len(names))
+    #x = np.arange(len(names))
     rect=ax.bar(x-width/2, dft, width, color=cmaps[0], lw=1, edgecolor='k', label=lbl[0], hatch='+')
     rect=ax.bar(x+width/2, opt, width, color=cmaps[1], lw=1, edgecolor='k', label=lbl[1], hatch='//')
     ax.set_xticks(x)
@@ -97,10 +97,10 @@ def draw_stack_bar(_ax, ax, data):
     # ax.set_yscale('log')
 
 def draw_stack_bar(ax, x, data, labels, colors):
-    lbl = ["comp", "overhead"]
-    comp     =   np.array([53, 53, 53])
-    overhead = np.array([0, 23, 50.4])
-    cmaps = [ycmap[1], ycmap[0]]
+    #lbl = ["comp", "overhead"]
+    #comp     =   np.array([53, 53, 53])
+    #overhead = np.array([0, 23, 50.4])
+    #cmaps = [ycmap[1], ycmap[0]]
     x = np.array([0.2, 1, 1.8])
     xname = ["co-location", "replication", "evivtion"]
     width = 0.35
@@ -118,9 +118,9 @@ def draw_stack_bar(ax, x, data, labels, colors):
     # ax.set_yscale('log')
 
 def draw_barh0(ax, x, data, labels, colors):
-    lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
-    itg  = [345, 215, 130, 0, 0]
-    cmaps = ["k", "dimgray", "gray", "lightgray", "w", "r"]
+    #lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
+    #itg  = [345, 215, 130, 0, 0]
+    #cmaps = ["k", "dimgray", "gray", "lightgray", "w", "r"]
     rect=ax.barh(lbl, itg, 0.6, color=cmaps, lw=1, edgecolor='k', label=lbl)
     ax.invert_xaxis()
     ax.grid(ls='--')

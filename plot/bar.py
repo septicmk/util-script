@@ -10,10 +10,10 @@ data = np.array([[2439.45, 164.634765],
                  [50.5063, 52.421669],
                  [56.4439, 14.584431]])
 """
-def draw_bar(ax, x, data, labels, colors):
+def draw_bar(ax, xname, data, labels, colors):
     w = 0.25;
-    #x = np.array([0, 1])
-    xname = ["Grape", "DGL"]
+    x = np.array(range(len(xname)))
+    #xname = ["Grape", "DGL"]
     ax.bar(x-w, data[0], w, label="IO", lw=1, edgecolor='k', color='k', hatch='+')
     ax.bar(x, data[1], w, label="Serialization", edgecolor='k', color=ycmap[1])
     ax.bar(x+w, data[2], w, label ="Deserialization", edgecolor='k', color='white', hatch='\\')
@@ -25,11 +25,11 @@ def draw_bar(ax, x, data, labels, colors):
     #ax.set_axisbelow(True)
     #ax.legend(prop={'size': 6})
 
-def draw_bar(ax, x, data, labels, colors):
+def draw_bar(ax, xname, data, labels, colors):
     #lbl = ["default", "optimal"]
     #cmaps = ["k", "tan"]
-    new_path="./new_%s.etl" % (app)
-    old_path="./old_%s.etl" % (app)
+    #new_path="./new_%s.etl" % (app)
+    #old_path="./old_%s.etl" % (app)
     #dft = np.loadtxt(old_path).T
     #opt = np.loadtxt(new_path).T
     #opt = opt/dft
@@ -96,13 +96,14 @@ def draw_stack_bar(_ax, ax, data):
     _ax.legend(prop={'size': 6})
     # ax.set_yscale('log')
 
-def draw_stack_bar(ax, x, data, labels, colors):
+def draw_stack_bar(ax, xname, data, labels, colors):
     #lbl = ["comp", "overhead"]
     #comp     =   np.array([53, 53, 53])
     #overhead = np.array([0, 23, 50.4])
     #cmaps = [ycmap[1], ycmap[0]]
-    x = np.array([0.2, 1, 1.8])
-    xname = ["co-location", "replication", "evivtion"]
+    #x = np.array([0.2, 1, 1.8])
+    x = np.array(range(len(xname)))
+    #xname = ["co-location", "replication", "evivtion"]
     width = 0.35
     ax.bar(x, comp, width, color=cmaps[0], lw=1, edgecolor='k', label = lbl[0])
     ax.bar(x, overhead, width, bottom=comp, color=cmaps[1], lw=1, edgecolor='k', label = lbl[1])
@@ -117,33 +118,15 @@ def draw_stack_bar(ax, x, data, labels, colors):
     ax.legend(prop={'size': 10})
     # ax.set_yscale('log')
 
-def draw_barh0(ax, x, data, labels, colors):
+def draw_barh0(ax, xname, data, labels, colors):
     #lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
     #itg  = [345, 215, 130, 0, 0]
     #cmaps = ["k", "dimgray", "gray", "lightgray", "w", "r"]
-    rect=ax.barh(lbl, itg, 0.6, color=cmaps, lw=1, edgecolor='k', label=lbl)
+    x = np.array(range(len(xname)))
+    rect=ax.barh(x, itg, 0.6, color=cmaps, lw=1, edgecolor='k', label=lbl)
     ax.invert_xaxis()
     ax.grid(ls='--')
     ax.set_axisbelow(True)
     #ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(True)
     #ax.set_xscale('log')
-
-def draw_barh1(ax, data):
-    lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
-    perf = [71.3,  95.6, 110.9, 135.2, 238.4]
-    cmaps = ["k", "dimgray", "gray", "lightgray", "r"]
-    #ax.invert_yaxis()
-    #ax.xaxis.set_visible(False)
-    ax.yaxis.set_visible(True)
-    ax.grid(ls='--')
-    ax.set_axisbelow(True)
-    #data = list(map(lambda x: x/data[0], perf))
-    #data = list(map(lambda x: 1/x, data))
-    rect=ax.barh(lbl, perf, 0.6, color=cmaps, lw=1, edgecolor='k', label=lbl)
-    #ax.set_xlim(-0.5, 5.5)
-    #ax.set_ylim(0, 1)
-
-
-
-

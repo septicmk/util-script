@@ -13,7 +13,6 @@ data = np.array([[2439.45, 164.634765],
 def draw_bar(ax, xname, data, labels, colors):
     w = 0.25;
     x = np.array(range(len(xname)))
-    #xname = ["Grape", "DGL"]
     ax.bar(x-w, data[0], w, label="IO", lw=1, edgecolor='k', color='k', hatch='+')
     ax.bar(x, data[1], w, label="Serialization", edgecolor='k', color=ycmap[1])
     ax.bar(x+w, data[2], w, label ="Deserialization", edgecolor='k', color='white', hatch='\\')
@@ -26,14 +25,6 @@ def draw_bar(ax, xname, data, labels, colors):
     #ax.legend(prop={'size': 6})
 
 def draw_bar(ax, xname, data, labels, colors):
-    #lbl = ["default", "optimal"]
-    #cmaps = ["k", "tan"]
-    #new_path="./new_%s.etl" % (app)
-    #old_path="./old_%s.etl" % (app)
-    #dft = np.loadtxt(old_path).T
-    #opt = np.loadtxt(new_path).T
-    #opt = opt/dft
-    #dft = dft/dft
     mask = np.ones(15, dtype=bool)
     mask[[2,4,6,8,9]] = False
     opt = opt[mask]
@@ -118,12 +109,13 @@ def draw_stack_bar(ax, xname, data, labels, colors):
     ax.legend(prop={'size': 10})
     # ax.set_yscale('log')
 
+# draw single group bar
+# colors = ["k", "dimgray", "gray", "lightgray", "w", "r"]
+# labels = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
+# labels = colros
 def draw_barh0(ax, xname, data, labels, colors):
-    #lbl = ["ORD+ORD", "ORD+ORDf", "ORDf+ORD", "ORDf+ORDf", "Alluxio"]
-    #itg  = [345, 215, 130, 0, 0]
-    #cmaps = ["k", "dimgray", "gray", "lightgray", "w", "r"]
     x = np.array(range(len(xname)))
-    rect=ax.barh(x, itg, 0.6, color=cmaps, lw=1, edgecolor='k', label=lbl)
+    rect=ax.barh(x, data, 0.6, color=colors, lw=1, edgecolor='k', label=labels)
     ax.invert_xaxis()
     ax.grid(ls='--')
     ax.set_axisbelow(True)

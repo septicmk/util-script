@@ -10,9 +10,6 @@ class Art:
     def __init__(self):
         pass
 
-    def next_ax(self, bed):
-        pass
-
     def composition(self, x, y):
         pass
 
@@ -26,6 +23,11 @@ class Art:
         if ylog: ax.set_yscale('log')
         #ax.legend(frameon=False, prop={'size': 6})
         ax.legend(prop={'size': 6})
+
+    # The key feature.
+    # generates a layout that fit the given width, with suitable fontsize and avoids the overlapping of legend/labels
+    def gen_layout(self):
+        pass
 
     # --------------------------------------------------------------------------
     ##

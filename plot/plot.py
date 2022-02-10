@@ -31,6 +31,24 @@ class Art:
 
     # --------------------------------------------------------------------------
     ##
+    # @Synopsis Draw bars in given location.
+    #
+    # @Param ax: the axis
+    # @Param x: the axis-0
+    # @Param width: the width
+    # @Param base: bottom
+    # @Param data: 1-D data[i], len(data[i]) == len(x) == len(labels) == len(colors) == len(hatchs)
+    # @Param colors: colors for each data slice
+    # @Param labels: labels for each label slice
+    # @Param hatchs: hatchs for each label slice
+    #
+    # @Returns  None 
+    # --------------------------------------------------------------------------
+    def __bar_unit(self, ax, x, width, base, data, colors=None, labels=None, hatchs=None):
+        ax.bar(x, data, width, bottom=base, color=colors, lw=1, edgecolor='k', label=labels, hatch=hatchs)
+
+    # --------------------------------------------------------------------------
+    ##
     # @Synopsis draw on stack, if len(data[i][j]) = 1, then this is a 
     #
     # @Param ax: the axis 

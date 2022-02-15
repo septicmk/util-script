@@ -9,20 +9,20 @@ ycmap = ["#F7bc15", "#1a3ac5", "#3366ff", "#Abcbf6"]
 #xname = ["1M", "2M", "4M", "8M", "16M", "32M"]
 #colors = ['k', 'b', 'r', 'g']
 #markers = ['^', 'v', 'o', 's']
-def draw_lines(ax, xname, data, labels, colors, markers):
+def draw_lines(ax, xname, data, labels, colors, markers, linestyles):
     x = np.array(range(len(xname)))
         
-    ax.plot(x, data[0], label = labels[0], color = colors[0], marker = markers[0], linestyle = '--')
-    ax.plot(x, data[1], label = labels[1], color = colors[0], marker = markers[0])
+    ax.plot(x, data[0], label = labels[0], color = colors[0], marker = markers[0], linestyle = linestyles[0])
+    ax.plot(x, data[1], label = labels[1], color = colors[0], marker = markers[0], linestyle = linestyles[1])
 
-    ax.plot(x, data[2], label = labels[2], color = colors[1], marker = markers[1], linestyle = '--')
-    ax.plot(x, data[3], label = labels[3], color = colors[1], marker = markers[1])
+    ax.plot(x, data[2], label = labels[2], color = colors[1], marker = markers[1], linestyle = linestyles[2])
+    ax.plot(x, data[3], label = labels[3], color = colors[1], marker = markers[1], linestyle = linestyles[3])
 
-    ax.plot(x, data[4], label = labels[4], color = colors[2], marker = markers[2], linestyle = '--')
-    ax.plot(x, data[5], label = labels[5], color = colors[2], marker = markers[2])
+    ax.plot(x, data[4], label = labels[4], color = colors[2], marker = markers[2], linestyle = linestyles[4])
+    ax.plot(x, data[5], label = labels[5], color = colors[2], marker = markers[2], linestyle = linestyles[5])
 
-    ax.plot(x, data[6], label = labels[6], color = colors[3], marker = markers[3], linestyle = '--')
-    ax.plot(x, data[7], label = labels[7], color = colors[3], marker = markers[3])
+    ax.plot(x, data[6], label = labels[6], color = colors[3], marker = markers[3], linestyle = linestyles[6])
+    ax.plot(x, data[7], label = labels[7], color = colors[3], marker = markers[3], linestyle = linestyles[7])
 
     ax.set_ylabel("Latency (us/op)")
     ax.set_xlabel("Object size (GB)")

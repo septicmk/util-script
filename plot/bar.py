@@ -60,7 +60,8 @@ def draw_stack_bar(ax, xname, data, labels, colors):
     ax.legend(prop={'size': 10})
     # ax.set_yscale('log')
 
-def draw_stack_bar(_ax, ax, data):
+# drao stack bars on two axis.
+def draw_stack_bar(axs, xname, data, labels, colors):
     #base =   np.array(
     #        [[24.947917, 9.86953125],
     #         [22.720545, 40.9888]]).T
@@ -74,33 +75,33 @@ def draw_stack_bar(_ax, ax, data):
     lbl = ["Store", "Load"]
     x = np.array([0, 1])
     xname = ["FS", "Alluxio"]
-    ax.bar(x-width/2, base[0], width, color=cmaps[0], lw=1, edgecolor='k', label = lbl[0])
-    ax.bar(x+width/2, plasma[0], width, color=cmaps[0], lw=1, edgecolor='k',)
+    ax[0].bar(x-width/2, data[0], width, color=colors[0], lw=1, edgecolor='k', label = labels[0])
+    ax[0].bar(x+width/2, data[1], width, color=colors[0], lw=1, edgecolor='k', label = labels[1])
 
-    ax.bar(x-width/2, base[1], width, bottom=base[0], color=cmaps[1], lw=1, edgecolor='k', label = lbl[1])
-    ax.bar(x+width/2, plasma[1], width, bottom=plasma[0], color=cmaps[1], lw=1, edgecolor='k')
+    ax[0].bar(x-width/2, data[0], width, bottom=data[0], color=colors[1], lw=1, edgecolor='k', label = labels[1])
+    ax[0].bar(x+width/2, data[1], width, bottom=data[1], color=colors[1], lw=1, edgecolor='k', label = labels[1])
 
-    _ax.bar(x-width/2, over, width, color=cmaps[1], lw=1, edgecolor='k', label = lbl[0])
-    _ax.bar(x+width/2, [0,0], width, color=cmaps[0],lw=1, edgecolor='k', label=lbl[1])
+    ax[1].bar(x-width/2, over, width, color=colors[1], lw=1, edgecolor='k', label = labels[0])
+    ax[1].bar(x+width/2, [0,0], width, color=colors[0],lw=1, edgecolor='k', label = labels[1])
     #_ax.get_xaxis().set_visible(False)
-    _ax.set_xticklabels([])
-    for tic in _ax.xaxis.get_major_ticks():
+    ax[1].set_xticklabels([])
+    for tic in ax[1].xaxis.get_major_ticks():
         tic.tick1On = tic.tick2On = False
         tic.tick1line.set_visible(False)
         tic.tick2line.set_visible(False)
         tic.label1.set_visible(False)
         tic.label2.set_visible(False)
 
-    ax.set_ylabel('Runtime (s)')
-    ax.set_xticks(x)
-    ax.set_xticklabels(xname)
-    ax.grid(ls='--')
-    _ax.grid(ls='--')
-    ax.set_axisbelow(True)
-    _ax.set_axisbelow(True)
-    ax.set_ylim(0,22.720545+40.0888)
-    _ax.set_ylim(100, 22.720545+140.9888+20)
-    _ax.legend(prop={'size': 6})
+    ax[0].set_ylabel('Runtime (s)')
+    ax[0].set_xticks(x)
+    ax[0].set_xticklabels(xname)
+    ax[0].grid(ls='--')
+    ax[1].grid(ls='--')
+    ax[0].set_axisbelow(True)
+    ax[1].set_axisbelow(True)
+    ax[0].set_ylim(0, 22.720545+40.0888)
+    ax[1].set_ylim(100, 22.720545+140.9888+20)
+    ax[1].legend(prop={'size': 6})
     # ax.set_yscale('log')
 
 def draw_bar(ax, xname, data, labels, colors):

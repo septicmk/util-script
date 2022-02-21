@@ -35,20 +35,18 @@ def draw_bar(ax, xname, data, labels, colors, hatchs):
     ax.set_xticks(x)
     ax.set_xticklabels(xname)
     ax.grid(ls='--')
-    #ax.set_axisbelow(True)
+    ax.set_axisbelow(True)
     #ax.legend(prop={'size': 6})
 
+#label = ["comp", "overhead"]
+#xname = ["co-location", "replication", "evivtion"]
 def draw_stack_bar(ax, xname, data, labels, colors):
-    #lbl = ["comp", "overhead"]
-    #comp     =   np.array([53, 53, 53])
-    #overhead = np.array([0, 23, 50.4])
     #cmaps = [ycmap[1], ycmap[0]]
     #x = np.array([0.2, 1, 1.8])
     x = np.array(range(len(xname)))
-    #xname = ["co-location", "replication", "evivtion"]
     width = 0.35
-    ax.bar(x, comp, width, color=cmaps[0], lw=1, edgecolor='k', label = lbl[0])
-    ax.bar(x, overhead, width, bottom=comp, color=cmaps[1], lw=1, edgecolor='k', label = lbl[1])
+    ax.bar(x, data[0], width,              color=cmaps[0], lw=1, edgecolor='k', label = lbl[0])
+    ax.bar(x, data[1], width, bottom=comp, color=cmaps[1], lw=1, edgecolor='k', label = lbl[1])
 
     #_ax.get_xaxis().set_visible(False)
     ax.set_ylabel('Runtime (s)')
@@ -62,12 +60,6 @@ def draw_stack_bar(ax, xname, data, labels, colors):
 
 # drao stack bars on two axis.
 def draw_stack_bar(axs, xname, data, labels, colors):
-    #base =   np.array(
-    #        [[24.947917, 9.86953125],
-    #         [22.720545, 40.9888]]).T
-    #plasma=np.array(
-    #        [[15.401334, 0.000187],
-    #         [16.796730, 0.804495]]).T
     #over = np.array([0, 22.720545+140.9888])
     width = 0.35
     names = ["tensor", "dataframe"]

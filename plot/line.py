@@ -32,22 +32,6 @@ def draw_lines(ax, xname, data, labels, colors, markers, linestyles):
     #ax.legend(frameon=False, prop={'size': 6})
     ax.legend(prop={'size': 6})
 
-def draw_lines(ax, xname, data, labels, colors, markers):
-    x = np.array(range(len(xname)))
-       
-    ax.plot(x, data[0], label = labels[0], color = colors[0], marker = markers[0])
-    ax.plot(x, data[1], label = labels[1], color = colors[0], marker = markers[1])
-    ax.plot(x, data[2], label = labels[2], color = colors[1], marker = markers[2])
-    ax.plot(x, data[3], label = labels[3], color = colors[1], marker = markers[3])
-    ax.set_ylabel("Time (s)")
-    ax.set_xlabel("Object size (GB)")
-    ax.set_yscale('log')
-    ax.grid(ls='--')
-    ax.set_axisbelow(True)
-    #ax.legend(frameon=False, prop={'size': 6})
-    #ax.set_ylim(0, 100)
-    ax.legend(prop={'size': 10}, ncol=2)
-
 #labels = ["DF Incbuild", "DF ReBuild", "Graph Incbuild", "Graph ReBuild"]
 #colors = [ycmap[0], ycmap[1]]
 #markers = ['^', 'o', 'v', 's']
